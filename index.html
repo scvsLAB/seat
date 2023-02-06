@@ -1,60 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>點名系統</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <script>
-            screen.orientation.lock("landscape");
-        </script>
-        <form id="container">
-            <script>
-                var container = document.getElementById("container"); 
-                var fragment = document.createDocumentFragment();
-                for(i=0;i<24;i++){
-                    let newDiv = document.createElement("div");
-                    newDiv.id = "group_" + i.toString();
-                    newDiv.className = "group";
-                    fragment.appendChild(newDiv);
-                }
-                container.appendChild(fragment);
-            </script>
+<head>
+    <title>點名系統</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='style.css'>
+</head>
 
-            <script>
-                for(i=0;i<24;i++){
-                    var container = document.getElementById("group_"+i.toString()); 
-                    var fragment = document.createDocumentFragment();
-                    for(j=1;j<7;j++){
-                        let k = i*6 + j;
-                        let newBox = document.createElement("input");
-                        newBox.type = "checkbox";
-                        newBox.id = "check_" + k.toString();
-                        newBox.className = "chk-btn";
-                        newBox.name = k.toString();
-                        newBox.value = "absent";
-                        fragment.appendChild(newBox);
+<body>
+    <form id='container'>
+        <div id='teacher'>
+            <div>值班教師座位區</div>
+        </div>
+        <button id='return'>提交點名紀錄</button>
+        <script src='main.js'></script>
+    </form>
+</body>
 
-                        let newLab = document.createElement("label");
-                        newLab.id = "label_" + k.toString();
-                        newLab.htmlFor = "check_" + k.toString();
-                        newLab.appendChild(document.createTextNode(k.toString()));
-                        newLab.appendChild(document.createElement("br"))
-                        fragment.appendChild(newLab);
-                    }
-                    container.appendChild(fragment);
-                }
-            </script>
-            <div id="teacher">值班教師座位區</div>
-            <button id="return">提交點名紀錄</button>
-            <script>
-                document.getElementById('return').onclick = function(){
-                    alert("還沒有辦法送出QQ");
-                }
-            </script>
-        </form>               
-    </body>
 </html>
