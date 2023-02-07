@@ -17,12 +17,24 @@ for (i = 1; i < 25; i++) {
         newText.id = 'label_' + k.toString();
         newText.htmlFor = 'seat_' + k.toString();
         newText.appendChild(document.createTextNode(k.toString()));
-        newText.appendChild(document.createElement("br"))
+        newText.appendChild(document.createElement('br'))
         newDiv.appendChild(newText);
     }
     container.appendChild(newDiv);
 }
 
 document.getElementById('return').onclick = function () {
-    alert('還沒有辦法送出QQ');
+    // alert('還沒有辦法送出QQ');
+    html2canvas(document.getElementById('container')).then(function (canvas) {
+        var pic = document.createElement('a');
+        pic.href = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream');
+        pic.download = 'record.jpg';
+        pic.click();
+    })
 }
+
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.getElementById('date').innerHTML = year + '/' + month + '/' + day + ' 夜自習點名';
