@@ -25,8 +25,9 @@ for (i = 1; i < 25; i++) {
 
 document.getElementById('return').onclick = function () {
     // alert('還沒有辦法送出QQ');
+    event.preventDefault();
     html2canvas(document.getElementById('container')).then(function (canvas) {
-        var pic = document.createElement('a');
+        let pic = document.createElement('a');
         pic.href = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream');
         pic.download = 'record.jpg';
         pic.click();
