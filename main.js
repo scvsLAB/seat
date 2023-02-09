@@ -16,6 +16,9 @@ for (i = 1; i < 25; i++) {
         let newText = document.createElement('label');
         newText.id = 'label_' + k.toString();
         newText.htmlFor = 'seat_' + k.toString();
+        newText.className = 'box'
+        newText.appendChild(document.createTextNode(k.toString()));
+        newText.appendChild(document.createElement('br'))
         newText.appendChild(document.createTextNode(k.toString()));
         newText.appendChild(document.createElement('br'))
         newDiv.appendChild(newText);
@@ -34,6 +37,11 @@ document.getElementById('return').onclick = function () {
     })
 }
 
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.getElementById('date').innerHTML = year + '/' + month + '/' + day + ' 夜自習點名';
 date = new Date();
 year = date.getFullYear();
 month = date.getMonth() + 1;
